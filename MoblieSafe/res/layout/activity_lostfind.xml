@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <TextView
+        style="@style/title_style"
+        android:text="手机防盗" />
+    <!-- 防盗保护是否开启 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- textview也可以用 selector!!!!!!!!! -->
+        <!-- textview也可以当按钮 :  android:clickable="true"!!!!!!!!-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_btn_seletor"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:text="防盗保护是否开启"
+            android:textColor="#fff" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/unlock" />
+    </RelativeLayout>
+
+    <!-- 重新进入设置向导界面 -->
+    
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_btn_seletor"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:text="重新进入设置向导界面"
+            android:textColor="#fff" />
+    
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="SIM卡变更报警" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="GPS追踪#*gps*#" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程锁屏#*lockscreen*#" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程清除数据#*wipedate*#" />
+   <TextView
+        style="@style/lostfind_desc_style"
+        android:text="播放报警音乐#*music*#" />
+  
+  
+
+</LinearLayout>

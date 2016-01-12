@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--状态选择器:
+	1.可以看源码:
+		E:\adtbundlewindows64\sdk\platforms\android-15\data\res\drawable
+	2.可以查API  
+		file:///E:/adtbundlewindows64/sdk/docs/guide/topics/resources/color-list-resource.html-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/home_gv_item_selector">
+
+    <!-- 图片 -->
+
+    <ImageView
+        android:id="@+id/iv_item_home_gv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:src="@drawable/hcql" />
+    <!-- 标题和描述 -->
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/iv_item_home_gv_icon"
+        android:orientation="vertical" >
+
+        <!-- 标题 -->
+	<TextView
+	    android:id="@+id/tv_item_home_gv_title"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	   	android:textSize="18sp"
+	   	android:textColor="#000000"
+	     android:text="缓存清理"
+	     
+	     />
+	<TextView
+	    android:id="@+id/tv_item_home_gv_desc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	   	android:textSize="16sp"
+	     android:text="手机快步如飞"
+	    	android:textColor="#000000"
+	     
+	     />
+    </LinearLayout>
+
+</RelativeLayout>
