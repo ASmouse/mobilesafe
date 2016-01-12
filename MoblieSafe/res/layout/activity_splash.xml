@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_splash_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash" >
+
+    <!-- 版本名 -->
+
+    <TextView
+        android:id="@+id/tv_splash_versionname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:text="红薯版"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+    <!-- 版本号 -->
+
+    <TextView
+        android:id="@+id/tv_splash_versionnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_splash_versionname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:text="v1.0"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</RelativeLayout>

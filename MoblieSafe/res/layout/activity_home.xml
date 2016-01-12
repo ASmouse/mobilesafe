@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 头部 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/blue_bkg" >
+
+        <!-- logo -->
+
+        <ImageView
+            android:id="@+id/iv_home_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/heima" />
+        <!-- 标题和滚动文字 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_home_logo"
+            android:orientation="vertical" >
+
+            <!-- 标题 -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机安全卫士"
+                android:textSize="18sp" />
+            <!--
+                 滚动文字    1.属性的角度
+                android:ellipsize ="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+            -->
+
+            <com.example.mobliesafe.view.FocusTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="手机安全卫士手机安全卫士手机安全卫士手机安全卫士手机安全卫士手机安全卫士"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <!-- 设置按钮 -->
+
+        <ImageView
+            android:id="@+id/iv_home_setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/setting" />
+    </RelativeLayout>
+
+    <!-- GridView -->
+    <!--
+     	调间距 
+     	android:verticalSpacing="4dp"
+        android:horizontalSpacing="4dp"    -->
+
+    <GridView
+        android:id="@+id/gv_home_tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:horizontalSpacing="4dp"
+        android:numColumns="2"
+        android:verticalSpacing="4dp" >
+    </GridView>
+
+</LinearLayout>

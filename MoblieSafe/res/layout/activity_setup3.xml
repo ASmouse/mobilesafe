@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <TextView
+        style="@style/title_style"
+        android:text="3.设置安全号码" />
+    <!-- 描述信息 -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIM卡如果发生变化\n就会给安全号码发送短信"
+        android:textSize="15sp" />
+    <!-- 安全号码编辑框 -->
+    <!-- 可用安卓系统定义的颜色:android:textColorHint="@android:color/holo_orange_dark" -->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入安全号码"
+        android:textColorHint="@android:color/secondary_text_dark" />
+    <!-- 选择安全号码的按钮 -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_btn_seletor"
+        android:text="选择安全号码"
+        android:textColor="#fff" />
+
+    <!-- 线性布局显示4个点 -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <!-- 选中点 -->
+        <!-- 点的图片系统中有  view也可以这样用!!!! -->
+ <!-- 默认点 -->
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+ <!-- 选中点 -->
+       
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_online" />
+       
+<!-- 默认点 -->
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+    </LinearLayout>
+
+    <!-- 相对布局显示图片和按钮 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/step_3" />
+        <!-- 下一个 按钮 android:drawableRight="" -->
+
+        <Button
+            android:onClick="nextPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/dialog_btn_seletor"
+            android:drawableRight="@drawable/next"
+            android:text="下一个"
+            android:textColor="#fff" />
+
+        <!-- 上一个 按钮 android:drawableLeft="" -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/dialog_btn_seletor"
+            android:drawableLeft="@drawable/pre"
+            android:text="上一个"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+</LinearLayout>

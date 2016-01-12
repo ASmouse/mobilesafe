@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mobliesafe"
+    android:versionCode="2"
+    android:versionName="土豆" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.mobliesafe.activity.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.HomeActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.LostFindActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.Setup1Activity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.Setup2Activity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.Setup3Activity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.Setup4Activity" >
+        </activity>
+    </application>
+
+</manifest>

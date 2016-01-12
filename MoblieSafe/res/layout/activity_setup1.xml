@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <TextView
+        style="@style/title_style"
+        android:text="1.欢迎使用手机防盗" />
+    <!-- 描述信息 -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="您的手机防盗卫士"
+        android:textSize="15sp" />
+
+    <!-- 四个功能描述信息 -->
+    <!--
+    图片放到左边:(已经抽取到样式中)
+	android:drawableLeft="@drawable/dialog_title_default_icon" 
+	android:drawablePadding="5dip"
+    -->
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="SIM卡变更报警" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="GPS追踪" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程锁屏" />
+
+    <TextView
+        style="@style/lostfind_desc_style"
+        android:text="远程清除数据" />
+
+    <!-- 线性布局显示4个点 -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <!-- 选中点 -->
+        <!-- 点的图片系统中有  view也可以这样用!!!! -->
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_online" />
+        <!-- 默认点 -->
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@android:drawable/presence_invisible" />
+    </LinearLayout>
+    
+   <!-- 相对布局显示图片和按钮 -->
+   <!--ImageView也可以加入点击事件 onclick  -->
+ 	<RelativeLayout 
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="match_parent"
+ 	    >
+ 	    <ImageView 
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:src="@drawable/step_1"
+ 	        android:layout_centerInParent="true"
+ 	        />
+ 	    <!-- 下一个 按钮 android:drawableRight=""-->
+ 	    <Button 
+ 	        android:onClick="nextPage"
+ 	        android:layout_margin="5dp"
+ 	        android:layout_alignParentRight="true"
+ 	        android:layout_alignParentBottom="true"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:drawableRight="@drawable/next"
+ 	        android:text="下一个"
+ 	        android:background="@drawable/dialog_btn_seletor"
+ 	        android:textColor="#fff" 
+ 	        />
+ 	</RelativeLayout>
+</LinearLayout>
