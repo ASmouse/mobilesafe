@@ -18,8 +18,11 @@
         android:textSize="15sp" />
     <!-- 安全号码编辑框 -->
     <!-- 可用安卓系统定义的颜色:android:textColorHint="@android:color/holo_orange_dark" -->
-
+<!-- 输入类型:电话 或者 数字            android:inputType="phone|number"
+-->
     <EditText
+        android:id="@+id/et_setup3_safenumber"
+        android:inputType="phone|number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="请输入安全号码"
@@ -27,6 +30,7 @@
     <!-- 选择安全号码的按钮 -->
 
     <Button
+        android:onClick="selectSafenumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_btn_seletor"
@@ -96,6 +100,7 @@
         <!-- 上一个 按钮 android:drawableLeft="" -->
 
         <Button
+             android:onClick="prevPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

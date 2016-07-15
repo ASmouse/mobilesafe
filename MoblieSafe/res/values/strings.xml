@@ -3,4 +3,6 @@
     <string name="app_name">MoblieSafe</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="sample_device_admin_description">开启设备管理器</string>
+    <string name="sample_device_admin">手机安全卫士--jun</string>
 </resources>

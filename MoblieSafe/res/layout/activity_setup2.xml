@@ -24,6 +24,7 @@
         android:layout_height="wrap_content" >
 
         <Button
+            android:onClick="bindSIM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/dialog_btn_seletor"
@@ -33,6 +34,7 @@
         <!-- 标记是否绑定SIM卡的图标 -->
 
         <ImageView
+            android:id="@+id/iv_setp2_bindSim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -106,6 +108,7 @@
         <!-- 上一个 按钮 android:drawableLeft="" -->
 
         <Button
+            android:onClick="prevPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

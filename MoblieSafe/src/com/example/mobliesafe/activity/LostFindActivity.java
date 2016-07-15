@@ -3,8 +3,10 @@ package com.example.mobliesafe.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
+import android.view.View;
+import android.widget.TextView;
 
+import com.example.mobliesafe.R;
 import com.example.mobliesafe.utils.MyContains;
 import com.example.mobliesafe.utils.SPUtils;
 
@@ -13,34 +15,55 @@ import com.example.mobliesafe.utils.SPUtils;
  * @data 2016-7-12
  * @desc 手机防盗界面
  
- * @version  $Rev: 7 $
+ * @version  $Rev: 9 $
  * @author  $Author: caojun $
- * @Date  $Date: 2016-07-12 20:02:45 +0800 (周二, 12 七月 2016) $
+ * @Date  $Date: 2016-07-15 13:16:31 +0800 (周五, 15 七月 2016) $
  * @Id	$ID$
  * @Url  $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/activity/LostFindActivity.java $
  */
 public class LostFindActivity extends Activity{
+	private TextView tv_safenumber;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		//进来先判断是否设置向导完成
-		if(SPUtils.getBoolean(getApplicationContext(), MyContains.ISSETUPFINISH, false)){
+		//直接进行逻辑判断 是否设置向导完成
+		if (SPUtils.  getBoolean(getApplicationContext(), MyContains.ISSETUPFINISH, false)) {
 			//设置向导完成
 			initView();
-		}else{
+			initData();
+		} else {
 			//设置向导未完成,进入第一个设置向导界面
 			Intent intent = new Intent(this,Setup1Activity.class);
 			startActivity(intent);
-			
-			//关闭自己,防止利用任务栈来返回到这个界面
+			//关闭自己
 			finish();
+			
 		}
 	}
+	
+	public void enterSetup1(View v){
+		//进入第一个设置向导界面
+		Intent setup1 = new Intent(this,Setup1Activity.class);
+		startActivity(setup1);
+		finish();
+	}
 
+	private void initData() {
+		// 显示安全号码
+		tv_safenumber.setText(SPUtils.getString(getApplicationContext(), MyContains.SAFENUMBER, ""));
+		
+	}
+
+	/**
+	 * 初始化界面
+	 */
 	private void initView() {
-		// TODO Auto-generated method stub
+		setContentView(R.layout.activity_lostfind);
+		
+		tv_safenumber = (TextView) findViewById(R.id.tv_lostfind_safenumber);
 		
 	}
 }

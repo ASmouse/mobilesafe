@@ -5,4 +5,7 @@ public interface MyContains {
 	String AUTOUPDATE = "autoupdate";
 	String PASSWORD = "password";
 	String ISSETUPFINISH = "issetupfinish";
+	String SIMNUMBER = "simnumber";
+	String SAFENUMBER = "safenumber";
+	String BOOTCOMPLETE ="bootcomplete";
 }

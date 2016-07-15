@@ -31,9 +31,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @data 2016-7-10
  * @desc 手机卫士的主界面
  * 
- * @version $Rev: 7 $
+ * @version $Rev: 8 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-12 20:02:45 +0800 (周二, 12 七月 2016) $
+ * @Date $Date: 2016-07-13 09:42:58 +0800 (周三, 13 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -234,7 +234,12 @@ public class HomeActivity extends Activity {
 		btn_confirm.setOnClickListener(listener);
 
 		ab.setView(layout); // 对话框设置自己的风格!!!!!!!
-		mAd = ab.create();
+		/*Creates a AlertDialog with the arguments supplied to this builder. 
+		It does not Dialog.show() the dialog. 
+		This allows the user to do any extra processing before displaying the dialog. 
+		Use show() if you don't have any other processing to do and want this to be created and displayed.
+*/
+		mAd = ab.create();	
 		mAd.show();
 	}
 

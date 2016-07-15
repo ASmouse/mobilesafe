@@ -9,23 +9,23 @@
     <TextView
         style="@style/title_style"
         android:text="4.恭喜您,设置完成" />
-    
-    <!--放到保护是否开启的复选框-->
-    <CheckBox 
+
+    <!-- 放到保护是否开启的复选框 -->
+
+    <CheckBox
+        android:id="@+id/cb_setup4_isopenlostfind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="开启放到保护"
         android:layout_marginLeft="3dp"
-        />
+        android:text="开启放到保护" />
     <!-- 描述信息 -->
 
     <TextView
+        android:id="@+id/tv_setup4_showstate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="防盗保护已经关闭"
-         />
-    
+        android:text="防盗保护已经关闭" />
 
     <!-- 线性布局显示4个点 -->
 
@@ -37,7 +37,8 @@
 
         <!-- 选中点 -->
         <!-- 点的图片系统中有  view也可以这样用!!!! -->
- <!-- 默认点 -->
+        <!-- 默认点 -->
+
         <View
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -47,21 +48,20 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@android:drawable/presence_invisible" />
- 
-       
-<!-- 默认点 -->
+
+        <!-- 默认点 -->
+
         <View
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@android:drawable/presence_invisible" />
-   <!-- 选中点 -->
-       
+        <!-- 选中点 -->
 
         <View
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@android:drawable/presence_online" />
-        </LinearLayout>
+    </LinearLayout>
 
     <!-- 相对布局显示图片和按钮 -->
 
@@ -77,7 +77,6 @@
         <!-- 下一个 按钮 android:drawableRight="" -->
 
         <Button
-            android:onClick="nextPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -85,6 +84,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/dialog_btn_seletor"
             android:drawableRight="@drawable/next"
+            android:onClick="nextPage"
             android:text="下一个"
             android:textColor="#fff" />
 
@@ -98,6 +98,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/dialog_btn_seletor"
             android:drawableLeft="@drawable/pre"
+            android:onClick="prevPage"
             android:text="上一个"
             android:textColor="#fff" />
     </RelativeLayout>

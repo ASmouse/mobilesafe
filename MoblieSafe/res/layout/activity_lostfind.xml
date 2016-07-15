@@ -9,6 +9,31 @@
     <TextView
         style="@style/title_style"
         android:text="手机防盗" />
+    <!-- 显示安全号码 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_btn_seletor" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="安全号码"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv_lostfind_safenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="11111"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
     <!-- 防盗保护是否开启 -->
 
     <RelativeLayout
@@ -16,7 +41,7 @@
         android:layout_height="wrap_content" >
 
         <!-- textview也可以用 selector!!!!!!!!! -->
-        <!-- textview也可以当按钮 :  android:clickable="true"!!!!!!!!-->
+        <!-- textview也可以当按钮 :  android:clickable="true"!!!!!!!! -->
 
         <TextView
             android:layout_width="match_parent"
@@ -33,21 +58,20 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-            android:src="@drawable/unlock" />
+            android:src="@drawable/lock" />
     </RelativeLayout>
 
     <!-- 重新进入设置向导界面 -->
-    
-    
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dialog_btn_seletor"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:text="重新进入设置向导界面"
-            android:textColor="#fff" />
-    
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_btn_seletor"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:onClick="enterSetup1"
+        android:text="重新进入设置向导界面"
+        android:textColor="#fff" />
 
     <TextView
         style="@style/lostfind_desc_style"
@@ -63,11 +87,10 @@
 
     <TextView
         style="@style/lostfind_desc_style"
-        android:text="远程清除数据#*wipedate*#" />
-   <TextView
+        android:text="远程清除数据#*wipedata*#" />
+
+    <TextView
         style="@style/lostfind_desc_style"
         android:text="播放报警音乐#*music*#" />
-  
-  
 
 </LinearLayout>
