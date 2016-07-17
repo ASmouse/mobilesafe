@@ -31,9 +31,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @data 2016-7-10
  * @desc 手机卫士的主界面
  * 
- * @version $Rev: 8 $
+ * @version $Rev: 12 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-13 09:42:58 +0800 (周三, 13 七月 2016) $
+ * @Date $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -93,7 +93,13 @@ public class HomeActivity extends Activity {
 					}
 
 					break;
-
+					
+					
+				case 1://黑名单管理
+					Intent intent = new Intent(HomeActivity.this,WebBlackActivity.class);
+					startActivity(intent);
+					
+					break;
 				default:
 					break;
 				}

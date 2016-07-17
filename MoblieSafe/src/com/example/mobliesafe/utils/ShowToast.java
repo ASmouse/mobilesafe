@@ -1,6 +1,7 @@
 package com.example.mobliesafe.utils;
 
 import android.app.Activity;
+import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 /**
@@ -8,9 +9,9 @@ import android.widget.Toast;
  * @data 2016-7-14
  * @desc 土司的封装类
 
- * @version  $Rev: 9 $
+ * @version  $Rev: 12 $
  * @author  $Author: caojun $
- * @Date  $Date: 2016-07-15 13:16:31 +0800 (周五, 15 七月 2016) $
+ * @Date  $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
  * @Id	$ID$
  * @Url  $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/utils/ShowToast.java $
  */
@@ -23,8 +24,7 @@ public class ShowToast {
 		//是否是主线程
 		/*if(Thread.currentThread().getName().equals("main")){
 			Toast.makeText(context, msg, 1).show();
-			
-		}else{
+s		}else{
 			context.runOnUiThread(new Runnable() {
 				
 				@Override
@@ -44,4 +44,5 @@ public class ShowToast {
 			}
 		});
 	}
+
 }

@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
+import android.widget.VideoView;
 
 
 import com.example.mobliesafe.R;

@@ -20,6 +20,7 @@ public class ServiceUtils {
 		List<RunningServiceInfo> runningServices = am.getRunningServices(100);
 		for (RunningServiceInfo rs : runningServices) {
 			String name = rs.service.getClassName();
+			
 			if(name.equals(serviceName)){
 				res = true;
 				break;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- 线性布局显示两个信息 黑名单号码 拦截模式 -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:orientation="vertical" >
+
+        <!-- 黑名单号码 -->
+
+        <TextView
+            android:id="@+id/tv_item_black_lv_blackphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111111" />
+        <!-- 拦截模式 -->
+
+        <TextView
+            android:id="@+id/tv_item_black_lv_blackmode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电话拦截" />
+    </LinearLayout>
+
+    <!-- 删除黑名单的按钮 -->
+
+    <ImageView
+        android:id="@+id/iv_item_black_lv_delete"
+        android:layout_marginRight="10dip"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_delete_iv_selector" />
+
+</RelativeLayout>

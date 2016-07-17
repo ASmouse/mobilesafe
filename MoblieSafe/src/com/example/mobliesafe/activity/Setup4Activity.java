@@ -21,11 +21,11 @@ import com.example.mobliesafe.utils.ShowToast;
 /**
  * @author jacksonCao
  * @data 2016-7-12
- * @desc 第一个设置向导界面
+ * @desc 第4个设置向导界面
  * 
- * @version $Rev: 10 $
+ * @version $Rev: 12 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-15 17:32:25 +0800 (周五, 15 七月 2016) $
+ * @Date $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -111,6 +111,9 @@ public class Setup4Activity extends BaseSetupActivity {
 		super.initEvent();
 	}
 
+	/**开启设备管理器 !!!
+	 * 
+	 */
 	private void startDeviceManager() {
 		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mCN);

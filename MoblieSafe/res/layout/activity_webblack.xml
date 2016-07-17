@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- 标题 -->
+
+        <TextView
+            style="@style/title_style"
+            android:text="通讯卫士" />
+
+        <!-- 添加黑名单数据的按钮 -->
+
+        <ImageView
+            android:id="@+id/iv_black_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:onClick=""
+            android:src="@drawable/black_add_iv_selector" />
+    </RelativeLayout>
+
+    <!-- 数据部分 -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <!-- 加载数据进度 -->
+
+        <include layout="@layout/progressbar_circle" />
+
+        <!-- 有数据 -->
+
+        <ListView
+            android:id="@+id/lv_black_showdata"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" >
+        </ListView>
+
+        <!-- 没有数据 -->
+
+        <ImageView
+            android:id="@+id/iv_black_nodata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/empty"
+            android:visibility="gone" />
+    </FrameLayout>
+    <!-- 分页按钮的添加 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!-- 首页 -->
+
+        <Button
+            android:onClick="shou"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:text="首页"
+            android:textSize="12sp" />
+        <!-- 上一页 -->
+
+        <Button
+            android:onClick="shang"
+            android:layout_width="0dp"
+                        android:layout_height="25dp"
+
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:text="上一页"
+            android:textSize="12sp" />
+        <!-- 下一页 -->
+
+        <Button
+            android:onClick="xia"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:text="下一页"
+            android:textSize="12sp" />
+        <!-- 尾页 -->
+
+        <Button
+            android:onClick="wei"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:text="尾页"
+            android:textSize="12sp" />
+        <!-- 跳转 -->
+
+        <Button
+            android:onClick="tiao"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:text="跳转"
+            android:textSize="12sp" />
+<!--             android:inputType="number"
+ -->
+        <EditText
+            android:inputType="number"
+            android:id="@+id/et_webblack_topage"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="1"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/tv_web_black_pagemess"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="3/12"
+            />
+    </LinearLayout>
+
+</LinearLayout>
