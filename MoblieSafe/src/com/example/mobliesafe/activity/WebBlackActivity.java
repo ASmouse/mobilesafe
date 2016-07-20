@@ -56,10 +56,10 @@ public class WebBlackActivity extends Activity {
 
 	private static final int COUNTPERPAGE = 10;// 每一页显示多少条数据
 	private int totalPages = 0;// 总页数
-	private int currentPage = 0;// 當前页数
+	private int currentPage = 1;// 當前页数
 
 	// A.
-	// private boolean mIsFirstShow ;
+/*	private boolean mIsFirstShow;*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +69,15 @@ public class WebBlackActivity extends Activity {
 
 		initDate(); // 数据 可能执行多次
 
-		initEvent(); // 事件
+		initEvent(); // 事件						2.
 
-		initPopupWindow(); // 只初始化一次,没必要多次创建所以放在这
-		initAddBlackDialog(); // 添加黑名单的对话框
+		initPopupWindow(); // 只初始化一次,没必要多次创建所以放在这			1.
+		initAddBlackDialog(); // 添加黑名单的对话框	!!!!!!!!!!!!
 	}
 
+	/**
+	 * 初始化添加黑名单的自定义对话框
+	 */
 	private void initAddBlackDialog() {
 		// TODO Auto-generated method stub
 		// 通过兑黄狂添加黑名单数据
@@ -133,7 +136,9 @@ public class WebBlackActivity extends Activity {
 					mBlackDao.updata(bean);
 					// 4.显示最先添加的黑名单数据
 					// A.
-					// mIsFirstShow = true;
+					//mIsFirstShow = true;
+					//!!!!!!!+加后显示在第一页
+					currentPage = 1;
 					initDate();
 					// 避免了调用initDate 带来的显示缓冲对话框,减少了对数据库的多次读取
 					// mBlackBeans.add(0, bean);
@@ -204,13 +209,13 @@ public class WebBlackActivity extends Activity {
 		tv_manadd.setOnClickListener(mListener);
 
 		// 初始化弹出窗体
-		// LayoutParams.WRAP_CONTENT == -2
+		// LayoutParams.WRAP_CONTENT == -2!!!!!!!!!!!!!!!
 		mPW = new PopupWindow(mContentView, 130, -2);
 		// 设置焦点 子控件可以被点击
 		mPW.setFocusable(true);
-		// 设置背景 1.外部点击生效 2.可以播放动画
+		// 设置背景 1.外部点击生效 2.可以播放动画!!!!!!!!!!!!!!!
 		mPW.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-		// 外部点击
+		// 外部点击!!!!!!!!!!!!!
 		mPW.setOutsideTouchable(true);
 
 		mPopupAnimation = new ScaleAnimation(1.0f, 1.0f, 0.0f, 1.0f,
@@ -270,7 +275,7 @@ public class WebBlackActivity extends Activity {
 				if (mPW != null && mPW.isShowing()) {
 					mPW.dismiss();
 				} else {
-					// 显示动画
+					// 显示动画!!!!!!!!!!!!!
 					mContentView.startAnimation(mPopupAnimation);
 					// v是 onClick(View v)的 !!!!!!!!!
 					mPW.showAsDropDown(v);
@@ -308,15 +313,15 @@ public class WebBlackActivity extends Activity {
 					// 刷新界面 适配器通知 !!!!! 取数据底层也是适配器做的
 
 					mAdapter.notifyDataSetChanged();
-					// A.
-					/*
-					 * if(mIsFirstShow){ lv_showdata.smoothScrollToPosition(0);
-					 * mIsFirstShow = false; }
-					 */
-					
-					
-					//添加 页面 信息
-					tv_pagemess.setText(currentPage +"/"+ totalPages);
+					// A.没用
+/*
+					if (mIsFirstShow) {
+						lv_showdata.smoothScrollToPosition(0);
+						mIsFirstShow = false;
+					}*/
+
+					// 添加 页面 信息
+					tv_pagemess.setText(currentPage + "/" + totalPages);
 				}
 
 				// 没有数据显示nodata 隐藏listview
@@ -406,11 +411,13 @@ public class WebBlackActivity extends Activity {
 				public void onClick(View v) {
 					// 删除数据
 					// 本地数据删除
-					mBlackBeans.remove(bean);
+
+					//mBlackBeans.remove(bean);
 					// 数据库删除
 					mBlackDao.delete(bean.getPhone());
 					// 更新界面
-					mAdapter.notifyDataSetChanged();
+					// mAdapter.notifyDataSetChanged();
+					initDate();
 				}
 			});
 
@@ -429,8 +436,7 @@ public class WebBlackActivity extends Activity {
 				mHandler.obtainMessage(LOADING).sendToTarget();
 
 				// 2.加载数据
-				
-			
+
 				// 从数据库中查询数据,查询的数据已经按添加的顺序排列(_id降序排列)!!!
 				//
 				// 获取总页数
@@ -452,12 +458,12 @@ public class WebBlackActivity extends Activity {
 	}
 
 	public void wei(View v) {
-		currentPage= totalPages;
+		currentPage = totalPages;
 		initDate();
 	}
 
 	public void shang(View v) {
-		if(currentPage == 1){
+		if (currentPage == 1) {
 			Toast.makeText(getBaseContext(), "已经是第一页了", 0).show();
 			return;
 		}
@@ -466,7 +472,7 @@ public class WebBlackActivity extends Activity {
 	}
 
 	public void xia(View v) {
-		if(currentPage == totalPages){
+		if (currentPage == totalPages) {
 			Toast.makeText(getBaseContext(), "已经是最后一页了", 0).show();
 			return;
 		}
@@ -477,9 +483,9 @@ public class WebBlackActivity extends Activity {
 	public void tiao(View v) {
 		String pageStr = et_jumppage.getText().toString().trim();
 		int page = Integer.parseInt(pageStr);
-		if(page < 1 || page > totalPages){
+		if (page < 1 || page > totalPages) {
 			ShowToast.show("您输入的已经超出范围了", WebBlackActivity.this);
-			return ;
+			return;
 		}
 		currentPage = page;
 		initDate();

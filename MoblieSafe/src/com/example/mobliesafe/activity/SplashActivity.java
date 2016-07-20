@@ -56,9 +56,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
  * @data 2016-7-9
  * @desc splash界面
  * 
- * @version $Rev: 8 $
+ * @version $Rev: 13 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-13 09:42:58 +0800 (周三, 13 七月 2016) $
+ * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -81,8 +81,8 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		// 去除标题,界面显示之前
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// TODO 模拟数据
-		SPUtils.putBoolean(getApplicationContext(), MyContains.AUTOUPDATE, true);
+/*		// TODO 模拟数据
+		SPUtils.putBoolean(getApplicationContext(), MyContains.AUTOUPDATE, true);*/
 
 		// 界面
 		initView();

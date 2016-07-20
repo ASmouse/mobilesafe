@@ -32,5 +32,11 @@ public class TestBlack extends AndroidTestCase{
 		System.out.println(dao.getPageData(1,10));
 
 	}
+	
+	public void testGetMode(){
+		BlackDao dao = new BlackDao(getContext());
+		int mode = dao.getMode("312");
+		System.out.println(mode);
+	}
 
 }

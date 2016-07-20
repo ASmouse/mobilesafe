@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.example.mobliesafe.db.BlackDB;
 import com.example.mobliesafe.domain.ContactBean;
 
 /**
@@ -14,9 +15,9 @@ import com.example.mobliesafe.domain.ContactBean;
  * @data 2016-7-14
  * @desc 获取所有联系人的dao
  * 
- * @version $Rev: 12 $
+ * @version $Rev: 13 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
+ * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -88,6 +89,7 @@ public class ContactsDao {
 	public static List<ContactBean> getTelContact(Context context) {
 		List<ContactBean> datas = new ArrayList<ContactBean>();
 		//contact2 表中的call 表 
+		//电话记录
 		
 		Uri uri =Uri.parse("content://call_log/calls");
 		Cursor cursor = context.getContentResolver().query(uri, new String[]{"name","number"}, null ,null, null);
@@ -102,4 +104,16 @@ public class ContactsDao {
 		return datas;
 
 	}
+
+	
+	/**
+	 * @param context
+	 * @param phone
+	 */
+	public static void deleteTelLog(Context context,String phone){
+		Uri uri =Uri.parse("content://call_log/calls");
+		context.getContentResolver().delete(uri,"number=?", new String[]{phone});
+		
+	}
+	
 }

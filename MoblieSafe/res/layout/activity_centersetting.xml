@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caojun="http://schemas.android.com/apk/res/com.example.mobliesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题头 -->
+
+    <TextView
+        style="@style/title_style"
+        android:text="设置中心" />
+    <!-- 加上状态选择器,要加上可点击的 android:clickable="true" -->
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_blackinterrput"
+        caojun:bgselector="first"
+        caojun:desc="黑名单拦截" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:bgselector="middle"
+        android:id="@+id/view_autoupdata"
+        caojun:desc="自动更新" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:bgselector="middle"
+        android:id="@+id/view_phonepalace"
+        caojun:desc="电话归属地服务" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:bgselector="last"
+        android:id="@+id/view_watchdog"
+        caojun:desc="看门狗服务" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+</LinearLayout>

@@ -28,6 +28,8 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
 
     <application
         android:allowBackup="true"
@@ -68,7 +70,11 @@
         <activity android:name="com.example.mobliesafe.activity.BaseSmsTelFriendActivity" >
         </activity>
 		<activity android:name="com.example.mobliesafe.activity.WebBlackActivity"></activity>
-        <receiver android:name="com.example.mobliesafe.receiver.BootCompleteReceiver" >
+      	<activity  android:name="com.example.mobliesafe.activity.SettingCenterActivity" ></activity>
+		
+		
+		
+		<receiver android:name="com.example.mobliesafe.receiver.BootCompleteReceiver" >
             <intent-filter>
 
                 <!-- 系统启动完成 -->
@@ -91,6 +97,8 @@
 
         <service android:name="com.example.mobliesafe.service.LostFindService" >
         </service>
+        <service android:name="com.example.mobliesafe.service.BlackService"></service>
+        
     </application>
 
 </manifest>

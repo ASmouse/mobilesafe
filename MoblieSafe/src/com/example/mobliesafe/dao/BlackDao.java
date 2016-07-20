@@ -16,11 +16,13 @@ import com.example.mobliesafe.domain.BlackBean;
  * @data 2016-7-16
  * @desc 对黑名单数据的操作
  * 
- * @version $Rev: 12 $
+ * @version $Rev: 13 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
+ * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
  * @Id $ID$
- * @Url $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/dao/BlackDao.java $
+ * @Url $URL:
+ *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
+ *      /mobliesafe/dao/BlackDao.java $
  */
 public class BlackDao {
 
@@ -29,45 +31,45 @@ public class BlackDao {
 	public BlackDao(Context context) {
 		mBlackDB = new BlackDB(context);
 	}
-	
-	
+
 	/**
 	 * @param phone要删除的黑名单号码
 	 */
-	public boolean delete(String phone){
+	public boolean delete(String phone) {
 		SQLiteDatabase database = mBlackDB.getWritableDatabase();
-		int delete = database.delete(BlackDB.TBNAME, BlackDB.PHONE + "=?", new String[]{phone});
+		int delete = database.delete(BlackDB.TBNAME, BlackDB.PHONE + "=?",
+				new String[] { phone });
 		database.close();
-		
-		if(delete > 0){
+
+		if (delete > 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
-	
-	/**如果有 先删除再添加
-	 * 如果没有 直接添加
-	 * @param phone 
+
+	/**
+	 * 如果有 先删除再添加 如果没有 直接添加
+	 * 
+	 * @param phone
 	 * @param mode
 	 */
-	public void updata(String phone , int mode){
-		//不管有没有,先删除再添加
+	public void updata(String phone, int mode) {
+		// 不管有没有,先删除再添加
 		delete(phone);
 		add(phone, mode);
 	}
-	
-	
-	public void updata(BlackBean bean){
-		updata(bean.getPhone(),bean.getMode());
+
+	public void updata(BlackBean bean) {
+		updata(bean.getPhone(), bean.getMode());
 	}
-	
+
 	/**
-	 * @param bean 黑名单数据的对象
+	 * @param bean
+	 *            黑名单数据的对象
 	 */
-	public void add(BlackBean bean){
-		add(bean.getPhone(),bean.getMode());
+	public void add(BlackBean bean) {
+		add(bean.getPhone(), bean.getMode());
 	}
 
 	/**
@@ -120,18 +122,22 @@ public class BlackDao {
 	}
 
 	/**
-	 * @param pageNumber	第几页
-	 * @param countPerPage  一夜显示多少条数据
+	 * @param pageNumber
+	 *            第几页
+	 * @param countPerPage
+	 *            一夜显示多少条数据
 	 * @return
 	 */
-	public List<BlackBean> getPageData(int pageNumber,int countPerPage){
-		List<BlackBean > datas = new ArrayList<BlackBean>();
-		
-		int startIndex = (pageNumber-1)* countPerPage;
+	public List<BlackBean> getPageData(int pageNumber, int countPerPage) {
+		List<BlackBean> datas = new ArrayList<BlackBean>();
+
+		int startIndex = (pageNumber - 1) * countPerPage;
 		SQLiteDatabase database = mBlackDB.getWritableDatabase();
+		// !!!!!!!!!!!!!!!添加数据后显示在第一条的关键: " order by _id desc"
 		Cursor cursor = database.rawQuery("select " + BlackDB.PHONE + ","
 				+ BlackDB.MODE + " from " + BlackDB.TBNAME
-				+ " limit ?,?", new String[]{startIndex + "",countPerPage+""});
+				+ " order by _id desc" + " limit ?,?", new String[] {
+				startIndex + "", countPerPage + "" });
 
 		BlackBean data = null;
 		if (cursor != null && cursor.getCount() > 0) {
@@ -146,25 +152,43 @@ public class BlackDao {
 			}
 		}
 		return datas;
-		
+
 	}
-	
-	
-	
-	/**返回数据的条数
+
+	/**
+	 * 返回数据的条数
+	 * 
 	 * @return
 	 */
-	public int getTotalRows(){
+	public int getTotalRows() {
 		int toatalRows = 0;
 		SQLiteDatabase database = mBlackDB.getWritableDatabase();
 		Cursor cursor = database.rawQuery("select count(1) from blacktb", null);
-		//只有一列
-		if(cursor.moveToNext()){
+		// 只有一列
+		if (cursor.moveToNext()) {
 			toatalRows = cursor.getInt(0);
 		}
-				
-		
+
 		return toatalRows;
-		
+
 	}
+
+	/**
+	 * 根据电话号码查询黑名单数据库中号码的拦截类型,没有查到返回0
+	 * 
+	 * @param phone
+	 * @return
+	 */
+	public  int getMode(String phone) {
+		int mode = 0;
+		SQLiteDatabase database = mBlackDB.getWritableDatabase();
+		Cursor cursor = database.rawQuery("select "+BlackDB.MODE+" from "+BlackDB.TBNAME+" where "+BlackDB.PHONE+"=?"  , new String[]{phone});
+		
+		if(cursor.moveToNext()){
+			mode = cursor.getInt(0);
+		}
+		return mode;
+
+	}
+
 }

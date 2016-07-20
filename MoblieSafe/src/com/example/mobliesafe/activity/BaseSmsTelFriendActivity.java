@@ -29,16 +29,17 @@ import com.example.mobliesafe.utils.MyContains;
  * @desc 显示所有好友的信息界面,耗时加载的标准结构[1]...[6]
  * 			ListActivity自动封装了ListView组件(不用findViewByid()了)
 
- * @version  $Rev: 12 $
+ * @version  $Rev: 13 $
  * @author  $Author: caojun $
- * @Date  $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
+ * @Date  $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
  * @Id	$ID$
  * @Url  $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/activity/BaseSmsTelFriendActivity.java $
  */
 public abstract class BaseSmsTelFriendActivity extends ListActivity{
 	protected static final int LOADING = 1;
 	protected static final int FINISH = 2;
-	private ListView lv_datas;
+	private ListView lv_datas;	
+
 	
 	
 	//[1]. 定义一个容器 并初始化
@@ -61,6 +62,8 @@ public abstract class BaseSmsTelFriendActivity extends ListActivity{
 		initEvent();
 		
 	}
+	
+	public abstract List<ContactBean> getDatas();
 	
 	private void initEvent() {
 		//给listview添加item点击事件
@@ -205,7 +208,5 @@ public abstract class BaseSmsTelFriendActivity extends ListActivity{
 		
 	}
 	
-	
-	
-	public abstract List<ContactBean> getDatas();
+
 }

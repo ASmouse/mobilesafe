@@ -424,7 +424,7 @@ public class BlackActivity extends Activity {
 
 				// 2.加载数据
 				// 模拟耗时
-				SystemClock.sleep(1000);
+				//SystemClock.sleep(1000);
 				//从数据库中查询数据,查询的数据已经按添加的顺序排列(_id降序排列)!!!
 				mBlackBeans = mBlackDao.findAll();
 

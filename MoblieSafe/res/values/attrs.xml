@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingCenteritem">
+        <attr name="desc" format="string"/>
+        <attr name="bgselector">
+            <enum name="first" value="0"/>
+            <enum name="middle" value="1"/>
+            <enum name="last" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

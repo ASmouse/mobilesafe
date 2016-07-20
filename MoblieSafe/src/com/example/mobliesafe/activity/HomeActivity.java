@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -31,9 +31,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @data 2016-7-10
  * @desc 手机卫士的主界面
  * 
- * @version $Rev: 12 $
+ * @version $Rev: 13 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-17 19:50:22 +0800 (周日, 17 七月 2016) $
+ * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -105,6 +105,17 @@ public class HomeActivity extends Activity {
 				}
 			}
 
+		});
+		
+		
+		
+		iv_setting.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this,SettingCenterActivity.class);
+				startActivity(intent);
+			}
 		});
 
 	}
