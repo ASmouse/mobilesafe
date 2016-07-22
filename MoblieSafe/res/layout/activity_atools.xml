@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caojun="http://schemas.android.com/apk/res/com.example.mobliesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <TextView 
+        style="@style/title_style"
+        android:text="高级工具"
+        />
+    <com.example.mobliesafe.view.SettingCenterItem 
+        android:layout_marginTop="20dp"
+        android:id="@+id/sci_atool_phonelocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:desc="归属地号码查询"
+        caojun:isdisabletoggle="true"
+        caojun:bgselector="first"
+        ></com.example.mobliesafe.view.SettingCenterItem>
+    
+    
+    <com.example.mobliesafe.view.SettingCenterItem 
+        android:id="@+id/sci_atool_phoneservice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:desc="服务中心号码查询"
+        caojun:isdisabletoggle="true"
+        caojun:bgselector="last"
+        ></com.example.mobliesafe.view.SettingCenterItem>
+</LinearLayout>

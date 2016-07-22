@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/title_style"
+        android:text="服务号码" />
+    <!-- ExpandableListView 扩展的listview -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ExpandableListView
+            android:visibility="gone"
+            android:id="@+id/elv_servicenumber_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ExpandableListView>
+
+        <!-- 引入进度条 -->
+
+        <include layout="@layout/progressbar_circle" />
+    </FrameLayout>
+
+</LinearLayout>
