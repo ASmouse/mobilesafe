@@ -82,12 +82,12 @@ public class BlackService extends Service {
 
 				switch (state) {
 				case TelephonyManager.CALL_STATE_RINGING:
-					// 判断和挂断的逻辑
-
-					endCall(incomingNumber);
 					// 删除电话日志
-
 					deleteLog(incomingNumber);
+
+					// 判断和挂断的逻辑
+					endCall(incomingNumber);
+
 					break;
 
 				}

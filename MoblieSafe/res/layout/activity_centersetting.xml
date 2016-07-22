@@ -13,6 +13,7 @@
     <!-- 加上状态选择器,要加上可点击的 android:clickable="true" -->
 
     <com.example.mobliesafe.view.SettingCenterItem
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/view_blackinterrput"
@@ -28,13 +29,14 @@
         caojun:desc="自动更新" >
     </com.example.mobliesafe.view.SettingCenterItem>
 
-    <com.example.mobliesafe.view.SettingCenterItem
+        <com.example.mobliesafe.view.SettingCenterItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         caojun:bgselector="middle"
-        android:id="@+id/view_phonepalace"
-        caojun:desc="电话归属地服务" >
+        android:id="@+id/sci_settingcenter_showlocation"
+        caojun:desc="来电显示归属地曹" >
     </com.example.mobliesafe.view.SettingCenterItem>
+    
 
     <com.example.mobliesafe.view.SettingCenterItem
         android:layout_width="match_parent"

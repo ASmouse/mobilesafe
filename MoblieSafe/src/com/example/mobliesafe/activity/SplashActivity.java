@@ -2,6 +2,8 @@ package com.example.mobliesafe.activity;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -56,9 +58,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
  * @data 2016-7-9
  * @desc splash界面
  * 
- * @version $Rev: 13 $
+ * @version $Rev: 14 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
+ * @Date $Date: 2016-07-22 19:23:04 +0800 (周五, 22 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -95,6 +97,36 @@ public class SplashActivity extends Activity {
 		initEvent();
 	}
 
+	
+	/**
+	 * @param dbFileName
+	 * @throws IOException
+	 */
+	public void copyDB(String dbFileName) throws IOException{
+		//判断文件是否已经拷贝过
+		File file=new File(getFilesDir(),dbFileName);
+		if(file.exists()){
+			return ;
+		}
+		
+		
+		InputStream is = getAssets().open(dbFileName);
+		
+		FileOutputStream fos = openFileOutput(dbFileName, 0);
+		
+		int len = -1;
+		byte[] bys= new byte[1024*4];
+		while((len=is.read(bys))!=-1){
+			fos.write(bys,0,len);
+			//刷新缓冲区内容到目的地,不刷新内容都在内存中
+			fos.flush();
+		}
+		is.close();
+		fos.close();
+	}
+	
+	
+	
 	private void initAnnimation() {
 		
 		// 补间动画 duration ,repeatCount,repeatMode
@@ -486,6 +518,10 @@ public class SplashActivity extends Activity {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
+				//拷贝数据库
+				copyFileThread("address.db");
+				copyFileThread("commonnum.db");
+				
 				// 动画开始 ,初始化数据,初始化网络(子线程)
 				// 版本更新
 				if (SPUtils.getBoolean(getApplicationContext(),
@@ -496,6 +532,22 @@ public class SplashActivity extends Activity {
 				} else {
 
 				}
+			}
+
+			/**
+			 * @param dbFileName
+			 */
+			private void copyFileThread(final String dbFileName) {
+				new Thread(){
+					public void run() {
+						try {
+							copyDB(dbFileName);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					};
+				}.start();
 			}
 
 			@Override

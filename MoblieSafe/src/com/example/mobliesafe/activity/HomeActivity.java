@@ -31,9 +31,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @data 2016-7-10
  * @desc 手机卫士的主界面
  * 
- * @version $Rev: 13 $
+ * @version $Rev: 14 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
+ * @Date $Date: 2016-07-22 19:23:04 +0800 (周五, 22 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -58,7 +58,7 @@ public class HomeActivity extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		//requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		initView();
 		// 开始动画
 		initAnimaton();
@@ -93,27 +93,34 @@ public class HomeActivity extends Activity {
 					}
 
 					break;
-					
-					
-				case 1://黑名单管理
-					Intent intent = new Intent(HomeActivity.this,WebBlackActivity.class);
+
+				case 1:// 黑名单管理
+					Intent intent = new Intent(HomeActivity.this,
+							WebBlackActivity.class);
 					startActivity(intent);
-					
+
 					break;
+
+				case 7:// 高级工具
+					Intent intent1= new Intent(HomeActivity.this,
+							AToolActivity.class);
+					startActivity(intent1);
+
+					break;
+
 				default:
 					break;
 				}
 			}
 
 		});
-		
-		
-		
+
 		iv_setting.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(HomeActivity.this,SettingCenterActivity.class);
+				Intent intent = new Intent(HomeActivity.this,
+						SettingCenterActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -193,16 +200,18 @@ public class HomeActivity extends Activity {
 						if (!isSetPassword) {
 							// 输入密码对话框
 							pass1 = Md5Utils.encode(pass1);
-							pass2 = SPUtils.getString(getApplicationContext(), MyContains.PASSWORD, "");
-							//MD5比較 
+							pass2 = SPUtils.getString(getApplicationContext(),
+									MyContains.PASSWORD, "");
+							// MD5比較
 							if (pass1.equals(pass2)) {
 								// 输入密码密码一致
-								
+
 								Toast.makeText(getApplicationContext(), "登陆成功",
 										Toast.LENGTH_SHORT).show();
 								mAd.dismiss();
 								// TODO 跳转界面
-								Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+								Intent intent = new Intent(HomeActivity.this,
+										LostFindActivity.class);
 								startActivity(intent);
 							} else {
 								// 输入面膜密码不一致
@@ -222,7 +231,8 @@ public class HomeActivity extends Activity {
 										MyContains.PASSWORD,
 										Md5Utils.encode(pass1));
 								// TODO 跳转界面
-								Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+								Intent intent = new Intent(HomeActivity.this,
+										LostFindActivity.class);
 								startActivity(intent);
 								mAd.dismiss();
 
@@ -251,12 +261,14 @@ public class HomeActivity extends Activity {
 		btn_confirm.setOnClickListener(listener);
 
 		ab.setView(layout); // 对话框设置自己的风格!!!!!!!
-		/*Creates a AlertDialog with the arguments supplied to this builder. 
-		It does not Dialog.show() the dialog. 
-		This allows the user to do any extra processing before displaying the dialog. 
-		Use show() if you don't have any other processing to do and want this to be created and displayed.
-*/
-		mAd = ab.create();	
+		/*
+		 * Creates a AlertDialog with the arguments supplied to this builder. It
+		 * does not Dialog.show() the dialog. This allows the user to do any
+		 * extra processing before displaying the dialog. Use show() if you
+		 * don't have any other processing to do and want this to be created and
+		 * displayed.
+		 */
+		mAd = ab.create();
 		mAd.show();
 	}
 

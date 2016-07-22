@@ -8,4 +8,6 @@ public interface MyContains {
 	String SIMNUMBER = "simnumber";
 	String SAFENUMBER = "safenumber";
 	String BOOTCOMPLETE ="bootcomplete";
+	String TOASTX = "toastX";
+	String TOASTY = "toastY";
 }

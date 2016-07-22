@@ -7,5 +7,7 @@
             <enum name="middle" value="1"/>
             <enum name="last" value="2"/>
         </attr>
+        
+   <attr name="isdisabletoggle" format="boolean"/>
     </declare-styleable>
 </resources>

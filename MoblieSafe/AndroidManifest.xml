@@ -30,6 +30,9 @@
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
     <application
         android:allowBackup="true"
@@ -71,9 +74,9 @@
         </activity>
 		<activity android:name="com.example.mobliesafe.activity.WebBlackActivity"></activity>
       	<activity  android:name="com.example.mobliesafe.activity.SettingCenterActivity" ></activity>
-		
-		
-		
+		<activity android:name="com.example.mobliesafe.activity.AToolActivity"></activity>
+		<activity android:name="com.example.mobliesafe.activity.PhoneLocationActivity"></activity>
+		<activity android:name="com.example.mobliesafe.activity.ServiceNumberActivity"></activity>
 		<receiver android:name="com.example.mobliesafe.receiver.BootCompleteReceiver" >
             <intent-filter>
 
@@ -98,7 +101,7 @@
         <service android:name="com.example.mobliesafe.service.LostFindService" >
         </service>
         <service android:name="com.example.mobliesafe.service.BlackService"></service>
-        
+        <service android:name="com.example.mobliesafe.service.IncomingShowLocationService"></service>
     </application>
 
 </manifest>

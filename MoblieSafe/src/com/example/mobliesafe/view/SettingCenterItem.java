@@ -82,7 +82,7 @@ public class SettingCenterItem extends LinearLayout {
 				"desc");
 		// 设置属性
 		tv_desc.setText(desc);
-
+		
 		
 		String bgselectors = attrs.getAttributeValue(
 				"http://schemas.android.com/apk/res/com.example.mobliesafe",
@@ -101,6 +101,12 @@ public class SettingCenterItem extends LinearLayout {
 		}
 		
 		
+		
+		//isdiasabletoggle  默认为false,这样不必改动前面的代码
+		boolean isDisableToggle = attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res/com.example.mobliesafe", "isdisabletoggle", false);
+		if(isDisableToggle){
+			iv_toggle.setVisibility(View.GONE);
+		}
 		
 	}
 

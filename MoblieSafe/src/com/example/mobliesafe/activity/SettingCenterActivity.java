@@ -4,12 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+
 
 import com.example.mobliesafe.R;
 import com.example.mobliesafe.service.BlackService;
+import com.example.mobliesafe.service.IncomingShowLocationService;
 import com.example.mobliesafe.utils.MyContains;
 import com.example.mobliesafe.utils.SPUtils;
 import com.example.mobliesafe.utils.ServiceUtils;
@@ -17,17 +16,15 @@ import com.example.mobliesafe.view.SettingCenterItem;
 import com.example.mobliesafe.view.SettingCenterItem.OnToggleChangedListener;
 
 public class SettingCenterActivity extends Activity {
-	private RelativeLayout rl_autoupdata;
-	private RelativeLayout rl_blackinterrupt;
-	private ImageView iv_autoupdata;
-	private ImageView iv_blackinterrupt;
+	
 	private SettingCenterItem view_blackinterrput;
 	private SettingCenterItem view_autoupdata;
+	private SettingCenterItem sci_showlocation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState); 
 
 		initView();
 		initData();
@@ -42,13 +39,11 @@ public class SettingCenterActivity extends Activity {
 		System.out.println(v.getId());
 				switch (v.getId()) {
 				case R.id.view_autoupdata:
-					System.out.println("view_autoupdata");
 					SPUtils.putBoolean(getApplicationContext(),
 							MyContains.AUTOUPDATE, isOpen);
 
 					break;
 				case R.id.view_blackinterrput:
-					System.out.println("view_blackinterrput");
 					if (isOpen) {
 						Intent service = new Intent(SettingCenterActivity.this,
 								BlackService.class);
@@ -57,6 +52,20 @@ public class SettingCenterActivity extends Activity {
 						Intent service = new Intent(SettingCenterActivity.this,
 								BlackService.class);
 						stopService(service);
+					}
+
+					break;
+					
+					
+				case R.id.sci_settingcenter_showlocation:
+					if (isOpen) {
+						Intent location = new Intent(SettingCenterActivity.this,
+								IncomingShowLocationService.class);
+						startService(location);
+					} else {
+						Intent location = new Intent(SettingCenterActivity.this,
+								IncomingShowLocationService.class);
+						stopService(location);
 					}
 
 					break;
@@ -69,8 +78,8 @@ public class SettingCenterActivity extends Activity {
 
 		view_autoupdata.setOnToggleChangedListener(listener);
 		view_blackinterrput.setOnToggleChangedListener(listener);
-		
-		
+		//别忘!!!!!!!!!!
+		sci_showlocation.setOnToggleChangedListener(listener);
 		/*view_autoupdata.setOnToggleChangedListener(new OnToggleChangedListener() {
 		
 			@Override
@@ -111,13 +120,18 @@ public class SettingCenterActivity extends Activity {
 		view_blackinterrput.setToggleOn(ServiceUtils.isServiceRunning(
 				getApplicationContext(),
 				"com.example.mobliesafe.service.BlackService"));
-	
-		System.out.println("initDataSuccess");
+		
+		sci_showlocation.setToggleOn(ServiceUtils.isServiceRunning(
+				getApplicationContext(),
+				"com.example.mobliesafe.service.IncomingShowLocationService"));
+		
 	}
 
 	private void initView() {
 		setContentView(R.layout.activity_centersetting);
 		view_blackinterrput = (SettingCenterItem) findViewById(R.id.view_blackinterrput);
 		view_autoupdata = (SettingCenterItem) findViewById(R.id.view_autoupdata);
+		
+		sci_showlocation = (SettingCenterItem)findViewById(R.id.sci_settingcenter_showlocation);
 	}
 }
