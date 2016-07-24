@@ -14,13 +14,14 @@ import com.example.mobliesafe.utils.SPUtils;
 import com.example.mobliesafe.utils.ServiceUtils;
 import com.example.mobliesafe.view.SettingCenterItem;
 import com.example.mobliesafe.view.SettingCenterItem.OnToggleChangedListener;
+import com.example.mobliesafe.view.ShowLocationStyleDialog;
 
 public class SettingCenterActivity extends Activity {
 	
 	private SettingCenterItem view_blackinterrput;
 	private SettingCenterItem view_autoupdata;
 	private SettingCenterItem sci_showlocation;
-
+	private SettingCenterItem  sci_locationstyle;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -69,6 +70,14 @@ public class SettingCenterActivity extends Activity {
 					}
 
 					break;
+					
+				case R.id.sci_settingcenter_locationstyle:
+					
+					ShowLocationStyleDialog dialog = new ShowLocationStyleDialog(SettingCenterActivity.this,sci_locationstyle);
+					dialog.show();
+					
+					break;
+						
 
 				}
 			}
@@ -80,6 +89,7 @@ public class SettingCenterActivity extends Activity {
 		view_blackinterrput.setOnToggleChangedListener(listener);
 		//别忘!!!!!!!!!!
 		sci_showlocation.setOnToggleChangedListener(listener);
+		sci_locationstyle.setOnToggleChangedListener(listener);
 		/*view_autoupdata.setOnToggleChangedListener(new OnToggleChangedListener() {
 		
 			@Override
@@ -124,6 +134,8 @@ public class SettingCenterActivity extends Activity {
 		sci_showlocation.setToggleOn(ServiceUtils.isServiceRunning(
 				getApplicationContext(),
 				"com.example.mobliesafe.service.IncomingShowLocationService"));
+		int position = SPUtils.getInt(getApplicationContext(), MyContains.LOCATIONSTYLEINDEX, 0);
+		sci_locationstyle.setConText("归属地风格显示("+ShowLocationStyleDialog.styleNames[position]+")");
 		
 	}
 
@@ -133,5 +145,8 @@ public class SettingCenterActivity extends Activity {
 		view_autoupdata = (SettingCenterItem) findViewById(R.id.view_autoupdata);
 		
 		sci_showlocation = (SettingCenterItem)findViewById(R.id.sci_settingcenter_showlocation);
+		sci_locationstyle = (SettingCenterItem)findViewById(R.id.sci_settingcenter_locationstyle);
+
+	
 	}
 }

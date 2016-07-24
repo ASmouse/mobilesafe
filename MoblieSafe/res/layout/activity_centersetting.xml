@@ -24,7 +24,7 @@
     <com.example.mobliesafe.view.SettingCenterItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        caojun:bgselector="middle"
+        caojun:bgselector="last"
         android:id="@+id/view_autoupdata"
         caojun:desc="自动更新" >
     </com.example.mobliesafe.view.SettingCenterItem>
@@ -32,7 +32,7 @@
         <com.example.mobliesafe.view.SettingCenterItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        caojun:bgselector="middle"
+        caojun:bgselector="first"
         android:id="@+id/sci_settingcenter_showlocation"
         caojun:desc="来电显示归属地曹" >
     </com.example.mobliesafe.view.SettingCenterItem>
@@ -42,8 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         caojun:bgselector="last"
-        android:id="@+id/view_watchdog"
-        caojun:desc="看门狗服务" >
+        caojun:isdisabletoggle="true"
+        android:id="@+id/sci_settingcenter_locationstyle"
+        caojun:desc="归属地风格" >
     </com.example.mobliesafe.view.SettingCenterItem>
 
 </LinearLayout>

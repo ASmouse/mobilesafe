@@ -24,6 +24,12 @@ public class SettingCenterItem extends LinearLayout {
 		initEvent();
 
 	}
+	
+	public void setConText(String phone){
+		tv_desc.setText(phone);
+	}
+	
+	
 
 	//暴露接口
 	public interface OnToggleChangedListener {

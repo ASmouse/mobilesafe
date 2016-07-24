@@ -10,4 +10,6 @@ public interface MyContains {
 	String BOOTCOMPLETE ="bootcomplete";
 	String TOASTX = "toastX";
 	String TOASTY = "toastY";
+	
+	String LOCATIONSTYLEINDEX = "locationstyleindex";
 }

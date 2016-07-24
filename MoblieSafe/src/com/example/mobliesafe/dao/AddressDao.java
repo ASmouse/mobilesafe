@@ -31,7 +31,7 @@ public class AddressDao {
 			type.setOutKey(cursor.getInt(0));
 			mServiceNameAndType.add(type);
 		}
-		
+		cursor.close();
 		return mServiceNameAndType;
 	}
 	
@@ -53,7 +53,7 @@ public class AddressDao {
 			Info.setNumber(cursor.getString(0));
 			mNumberAndName.add(Info);
 		}
-		
+		cursor.close();
 		return mNumberAndName;
 		
 	}
@@ -116,7 +116,7 @@ public class AddressDao {
 			 res = cursor.getString(0);
 		}
 		
-		
+		cursor.close();
 		return res;
 		
 	}
@@ -136,7 +136,7 @@ public class AddressDao {
 			 res = cursor.getString(0);
 		}
 		
-		
+		cursor.close();
 		return res;
 		
 	}

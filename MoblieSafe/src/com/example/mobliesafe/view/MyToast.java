@@ -52,6 +52,14 @@ public class MyToast implements OnTouchListener{
 	}
 	
 	
+	/**
+	 *设置背景颜色 
+	 */
+	private void showBgColor(){
+			int position = SPUtils.getInt(mContext, MyContains.LOCATIONSTYLEINDEX, 0);
+	      mView.setBackgroundResource(ShowLocationStyleDialog.bgColors[position]);
+	}
+	
 	
 	public void show(String location){
 		//每次动态添加view
@@ -59,7 +67,9 @@ public class MyToast implements OnTouchListener{
 		//3.view
 	        
 	       mView = View.inflate(mContext, R.layout.sys_toast, null);
-	      
+	    
+	       showBgColor();
+	       
 	       //添加注册事件!!!!!!!!!!!!!!!
 	       mView.setOnTouchListener(this);
 	       
@@ -116,7 +126,7 @@ public class MyToast implements OnTouchListener{
 			}else if(mParams.y > mWM.getDefaultDisplay().getHeight()-mView.getHeight()){
 				mParams.y = mWM.getDefaultDisplay().getHeight()-mView.getHeight();
 			}
-			//更新
+			//更新!!!!!!!!!
 			mWM.updateViewLayout(mView, mParams);
 			
 			downX = moveX;

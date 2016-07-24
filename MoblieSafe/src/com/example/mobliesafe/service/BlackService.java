@@ -124,7 +124,7 @@ public class BlackService extends Service {
 		if ((mode & BlackDB.PHONE_MODE) != 0) {
 			// 在黑名单中挂断电话
 			System.out.println("挂断电话");
-
+//			 sRegistry = ITelephonyRegistry.Stub.asInterface(ServiceManager.getService("telephony.registry"));
 			try {
 				// 1.calss
 				Class clazz = Class.forName("android.os.ServiceManager");

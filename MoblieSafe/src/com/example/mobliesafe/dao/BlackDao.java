@@ -16,9 +16,9 @@ import com.example.mobliesafe.domain.BlackBean;
  * @data 2016-7-16
  * @desc 对黑名单数据的操作
  * 
- * @version $Rev: 13 $
+ * @version $Rev: 15 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-20 19:56:24 +0800 (周三, 20 七月 2016) $
+ * @Date $Date: 2016-07-24 22:31:07 +0800 (周日, 24 七月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -117,6 +117,7 @@ public class BlackDao {
 				datas.add(data);
 			}
 		}
+		cursor.close();
 		return datas;
 
 	}
@@ -151,6 +152,7 @@ public class BlackDao {
 				datas.add(data);
 			}
 		}
+		cursor.close();
 		return datas;
 
 	}
@@ -168,7 +170,7 @@ public class BlackDao {
 		if (cursor.moveToNext()) {
 			toatalRows = cursor.getInt(0);
 		}
-
+		cursor.close();
 		return toatalRows;
 
 	}
@@ -187,6 +189,7 @@ public class BlackDao {
 		if(cursor.moveToNext()){
 			mode = cursor.getInt(0);
 		}
+		cursor.close();
 		return mode;
 
 	}

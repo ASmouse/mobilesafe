@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    
+    <RelativeLayout
+        
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    
+    
+    <View
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/v_item_locationstyle_lv"
+        android:background="@drawable/call_locate_blue"
+        />
+    
+     <TextView
+            android:id="@+id/tv_item_locationstyle_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/v_item_locationstyle_lv"
+            android:text="卫士蓝"
+            android:textColor="#66000000"
+            android:textSize="18sp" />
+
+         <ImageView
+            android:id="@+id/iv_item_locationstyle_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_selected" />
+     
+     
+</RelativeLayout>
+    
+</LinearLayout>
+

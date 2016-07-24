@@ -4,29 +4,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    
-    <TextView 
+
+    <TextView
         style="@style/title_style"
-        android:text="高级工具"
-        />
-    <com.example.mobliesafe.view.SettingCenterItem 
-        android:layout_marginTop="20dp"
+        android:text="高级工具" />
+
+    <com.example.mobliesafe.view.SettingCenterItem
         android:id="@+id/sci_atool_phonelocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        caojun:desc="归属地号码查询"
-        caojun:isdisabletoggle="true"
+        android:layout_marginTop="20dp"
         caojun:bgselector="first"
-        ></com.example.mobliesafe.view.SettingCenterItem>
-    
-    
-    <com.example.mobliesafe.view.SettingCenterItem 
+        caojun:desc="归属地号码查询"
+        caojun:isdisabletoggle="true" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
         android:id="@+id/sci_atool_phoneservice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        caojun:desc="服务中心号码查询"
-        caojun:isdisabletoggle="true"
         caojun:bgselector="last"
-        ></com.example.mobliesafe.view.SettingCenterItem>
+        caojun:desc="服务中心号码查询"
+        caojun:isdisabletoggle="true" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:id="@+id/sci_atool_smsback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        caojun:bgselector="first"
+        caojun:desc="短信备份"
+        caojun:isdisabletoggle="true" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+    <com.example.mobliesafe.view.SettingCenterItem
+        android:id="@+id/sci_atool_smsrestore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        caojun:bgselector="last"
+        caojun:desc="短信还原"
+        caojun:isdisabletoggle="true" >
+    </com.example.mobliesafe.view.SettingCenterItem>
+
+
 </LinearLayout>

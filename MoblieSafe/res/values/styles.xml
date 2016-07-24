@@ -3,23 +3,24 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
-<!--     加android:前缀    <item name="android:windowNoTitle">true</item>
- 		系统用的可以不加,用户用必须加
- -->
+    <!--
+         加android:前缀    <item name="android:windowNoTitle">true</item>
+ 		系统用的可以不加,用户用必须加
+    -->
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
-       <!--  <item name="android:windowFullscreen">true</item> -->
-       <!--  只有再这里更改有效,其他地方无效!!!!!!!!!!!!!-->
+        <!-- <item name="android:windowFullscreen">true</item> -->
+        <!-- 只有再这里更改有效,其他地方无效!!!!!!!!!!!!! -->
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
@@ -31,13 +32,31 @@
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
     </style>
-     <style name="lostfind_desc_style">
+
+    <style name="lostfind_desc_style">
         <item name="android:drawableLeft">@drawable/dialog_title_default_icon</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
         <item name="android:drawablePadding">5dip</item>
-            <item name="android:layout_margin">5dip</item>
+        <item name="android:layout_margin">5dip</item>
+    </style>
+    <!-- 自定义dialog -->
+    <style name="LocationStyle" parent="@android:style/Theme.Dialog">
+
+        <!-- 背景颜色 -->
+        <item name="android:windowBackground">@android:color/darker_gray</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+
+        <!-- 阴影 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 去掉标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置在外面点击关闭 -->
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
 </resources>
