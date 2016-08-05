@@ -2,6 +2,8 @@ package com.example.mobliesafe.service;
 
 import java.lang.reflect.Method;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,6 +18,7 @@ import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.ITelephony;
+import com.example.mobliesafe.R;
 import com.example.mobliesafe.dao.BlackDao;
 import com.example.mobliesafe.dao.ContactsDao;
 import com.example.mobliesafe.db.BlackDB;
@@ -61,6 +64,8 @@ public class BlackService extends Service {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		System.out.println("黑名单服务开启");
+		//提升为前台进程
+		upForeground();
 		mBlackDao = new BlackDao(getApplicationContext());
 
 		// 动态注册拦截短信的广播监听者
@@ -68,6 +73,16 @@ public class BlackService extends Service {
 		// 注册电话拦截
 		registerTel();
 
+	}
+
+	private void upForeground() {
+		Notification notification = new Notification(R.drawable.heima, "这是手机安全卫士tips", 0);
+		//传递包名,打开整个App
+		Intent intent = new Intent("com.example.mobliesafe");
+		PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
+		
+		notification.setLatestEventInfo(getApplicationContext(), "手机卫士", "时刻保护您的手机安全", contentIntent);
+		startForeground(0, notification);
 	}
 
 	/**

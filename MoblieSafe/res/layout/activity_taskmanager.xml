@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caojun="http://schemas.android.com/apk/res/com.example.mobliesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+    >
+       <TextView
+        style="@style/title_style"
+        android:text="进程管理" />
+    
+       <ImageView
+          android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="5dp"
+          android:clickable="true"
+          android:onClick="clearTask"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/iv_clear_selector"
+           />
+</RelativeLayout>
+ 
+    <!-- 内存信息 -->
+
+    <com.example.mobliesafe.view.MessProgress
+        android:id="@+id/mpb_taskmanager_runningnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.example.mobliesafe.view.MessProgress>
+
+    <com.example.mobliesafe.view.MessProgress
+        android:id="@+id/mpb_taskmanager_runningmem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.example.mobliesafe.view.MessProgress>
+
+    <!-- 一个地方显示2个组件 用帧布局 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <!-- listview -->
+
+
+        <ListView
+            android:id="@+id/lv_taskmanager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_taskmanager_showInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF888888"
+            android:text="用户(10)"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <SlidingDrawer
+            android:layout_marginTop="400dp"
+            android:id="@+id/slidingDrawer1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:content="@+id/content"
+            android:handle="@+id/handle" >
+
+            <RelativeLayout
+                android:id="@+id/handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawer_bg" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/iv_drawer_arrow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/drawer_arrow_up" />
+
+                    <ImageView
+                        android:id="@+id/iv_drawer_arrow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/drawer_arrow_up" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:background="#fff"
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="提示:" />
+
+                <com.example.mobliesafe.view.SettingCenterItem
+                    android:id="@+id/sci_taskmanager_showsystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    caojun:bgselector="first"
+                    caojun:desc="显示系统进程" >
+                </com.example.mobliesafe.view.SettingCenterItem>
+
+                <com.example.mobliesafe.view.SettingCenterItem
+                    android:id="@+id/sci_taskmanager_screenoffclear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    caojun:bgselector="last"
+                    caojun:desc="锁屏清理进程" >
+                </com.example.mobliesafe.view.SettingCenterItem>
+            </LinearLayout>
+        </SlidingDrawer>
+        <!-- 进度条 -->
+
+        <include layout="@layout/progressbar_circle" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:onClick="selectAll"
+            android:text="全选"
+            android:textColor="#fff" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_seletor"
+            android:onClick="reverseSelect"
+            android:text="反选"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</LinearLayout>

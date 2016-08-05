@@ -24,7 +24,7 @@ public class AToolActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		initView();
-
+		
 		initData();
 
 		initEvent();

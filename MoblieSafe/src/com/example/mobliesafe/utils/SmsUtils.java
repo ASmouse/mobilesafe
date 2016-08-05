@@ -193,7 +193,7 @@ public class SmsUtils {
 						sms = "{";
 						sms += "\"address\":\"" + cursor.getString(0) + "\"";
 						sms += ",\"date\":\"" + cursor.getString(1) + "\"";
-						sms += ",\"body\":\"" + convert2ts(cursor.getString(2))
+						sms += ",\"body\":\"" + convert2ts(EncodeUtils.encode(cursor.getString(2), MyContains.MUSIC))
 								+ "\"";
 						sms += ",\"type\":\"" + cursor.getString(3) + "\"}";
 
@@ -312,10 +312,11 @@ public class SmsUtils {
 					for(Sms sms : jsonData.smses){
 						//取一条写一条
 						ContentValues values = new ContentValues();
+						
 						values.put("address", sms.address);
 			System.out.println("address: "+sms.address);			
 						values.put("body", convert2source(sms.body));
-		System.out.println("body: "+ convert2source(sms.body));	
+		System.out.println("body: "+ EncodeUtils.encode(convert2source(sms.body), MyContains.MUSIC));	
 						//!!!!!!!数据类型!!!!
 						values.put("date", Long.parseLong(sms.date));
 	System.out.println("date: "+ Long.parseLong(sms.date));	

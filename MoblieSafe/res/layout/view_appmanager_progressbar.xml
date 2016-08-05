@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     >
+
+    <ProgressBar
+        android:id="@+id/pb_appmanager_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:progressDrawable="@drawable/progress_horizontal"
+	   />
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/tv_appmanager_mess"
+	    android:textSize="18sp"
+	    android:textColor="#fff"
+	    android:text="256MB"
+	    />
+</RelativeLayout>

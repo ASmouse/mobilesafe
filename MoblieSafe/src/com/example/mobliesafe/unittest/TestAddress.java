@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.mobliesafe.dao.AddressDao;
 import com.example.mobliesafe.domain.ServiceNameAndType;
+import com.example.mobliesafe.utils.TaskInfoUtils;
 
 import android.test.AndroidTestCase;
 
@@ -31,5 +32,12 @@ public class TestAddress extends AndroidTestCase{
 			System.out.println(	AddressDao.getNumberAndName(serviceNameAndType));
 		
 		}
+	}
+	
+	public void testRunningApp(){
+		System.out.println("可用RAM:"+TaskInfoUtils.getAvailMem(getContext()));
+		System.out.println("总RAM:"+ TaskInfoUtils.getTotalMem(getContext()));
+		System.out.println("运行中的内存:"+TaskInfoUtils.getAllRunningApps(getContext()));
+		
 	}
 }

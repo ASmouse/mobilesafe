@@ -24,15 +24,31 @@
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- 分享 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
 
     <application
         android:allowBackup="true"
@@ -72,12 +88,70 @@
         </activity>
         <activity android:name="com.example.mobliesafe.activity.BaseSmsTelFriendActivity" >
         </activity>
-		<activity android:name="com.example.mobliesafe.activity.WebBlackActivity"></activity>
-      	<activity  android:name="com.example.mobliesafe.activity.SettingCenterActivity" ></activity>
-		<activity android:name="com.example.mobliesafe.activity.AToolActivity"></activity>
-		<activity android:name="com.example.mobliesafe.activity.PhoneLocationActivity"></activity>
-		<activity android:name="com.example.mobliesafe.activity.ServiceNumberActivity"></activity>
-		<receiver android:name="com.example.mobliesafe.receiver.BootCompleteReceiver" >
+        <activity android:name="com.example.mobliesafe.activity.WebBlackActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.SettingCenterActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.AToolActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.PhoneLocationActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.ServiceNumberActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.AppManagerActivity" >
+        </activity>
+        <activity android:name="com.example.mobliesafe.activity.AntiVirusActivity"></activity>
+        <activity android:name="com.example.mobliesafe.activity.CacheInfoActivity"></activity>
+        
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 易信分享回调 -->
+        <activity
+            android:name=".yxapi.YXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 支付宝分享回调 -->
+        <activity
+            android:name=".apshare.ShareEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.example.mobliesafe.activity.TaskManagerActivity" >
+        </activity>
+
+        <receiver android:name="com.example.mobliesafe.receiver.BootCompleteReceiver" >
             <intent-filter>
 
                 <!-- 系统启动完成 -->
@@ -97,11 +171,32 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.example.mobliesafe.receiver.MyAppWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_provider" />
+        </receiver>
+        <receiver android:name="com.itheima.mobilesafe13.receiver.WidgetClearTaskReceiver" >
+            <intent-filter>
+                <action android:name="widget.clear.task" >
+                </action>
+            </intent-filter>
+        </receiver>
 
         <service android:name="com.example.mobliesafe.service.LostFindService" >
         </service>
-        <service android:name="com.example.mobliesafe.service.BlackService"></service>
-        <service android:name="com.example.mobliesafe.service.IncomingShowLocationService"></service>
+        <service android:name="com.example.mobliesafe.service.BlackService" >
+        </service>
+        <service android:name="com.example.mobliesafe.service.IncomingShowLocationService" >
+        </service>
+        <service android:name="com.example.mobliesafe.service.ScreenOffClearService" >
+        </service>
+        <service android:name="com.example.mobliesafe.service.TaskWidgetService" >
+        </service>
     </application>
 
 </manifest>

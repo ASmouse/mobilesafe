@@ -10,6 +10,9 @@ public interface MyContains {
 	String BOOTCOMPLETE ="bootcomplete";
 	String TOASTX = "toastX";
 	String TOASTY = "toastY";
+	String SHOWSYSTEMTASK = "showsystemtask";
+	String CLEARTIME = "cleartime";
 	
 	String LOCATIONSTYLEINDEX = "locationstyleindex";
+	byte MUSIC = 91; //加密seed
 }

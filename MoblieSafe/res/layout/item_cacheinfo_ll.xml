@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- task图标 -->
+
+    <ImageView
+        android:padding="3dp"
+        android:id="@+id/iv_cahceinfo_ll_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/sjfd" />
+
+
+        <!-- task名字 -->
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_cahceinfo_ll_icon"
+            android:id="@+id/tv_cacheinfo_ll_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aap名字"
+            android:textSize="20sp" />
+
+   
+
+    <TextView
+        android:id="@+id/tv_cacheinfo_ll_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+		android:text="00.00B"
+		android:textSize="18sp"
+		android:textColor="#000000"
+        />
+
+</RelativeLayout>

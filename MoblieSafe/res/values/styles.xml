@@ -3,18 +3,24 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
+
+    <style name="widget_text">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textColor">@color/textColorPrimaryDark</item>
+    </style>
+
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
     <!--
          加android:前缀    <item name="android:windowNoTitle">true</item>
- 		系统用的可以不加,用户用必须加
+ 		系统用的可以不加,用户用必须加
     -->
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
@@ -59,4 +65,21 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
+    <!-- appmanager popupwindow 设置动画 -->
+    <style name="popAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+    <!-- 自定义progressbar -->
+    <style name="StyleProgressbarMini" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ic_security_progressbar</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">50dip</item>
+        
+        
+    </style>
+    
 </resources>

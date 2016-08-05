@@ -7,6 +7,7 @@
     android:orientation="vertical" >
 
     <ProgressBar
+        android:indeterminateDrawable="@drawable/progress_large_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />

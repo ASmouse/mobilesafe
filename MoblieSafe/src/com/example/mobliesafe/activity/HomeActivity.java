@@ -31,9 +31,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @data 2016-7-10
  * @desc 手机卫士的主界面
  * 
- * @version $Rev: 14 $
+ * @version $Rev: 16 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-22 19:23:04 +0800 (周五, 22 七月 2016) $
+ * @Date $Date: 2016-08-05 17:55:44 +0800 (周五, 05 八月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -100,7 +100,38 @@ public class HomeActivity extends Activity {
 					startActivity(intent);
 
 					break;
+				case 2:// 软件管家
+					Intent intent2 = new Intent(HomeActivity.this,
+							AppManagerActivity.class);
+					startActivity(intent2);
 
+					break;	
+				case 3:// 进程管理
+						long time = SPUtils.getLong(getApplicationContext(), MyContains.CLEARTIME, 0);
+						long currentTimeMillis = System.currentTimeMillis();
+						if(currentTimeMillis-time <5000){
+							Toast.makeText(getApplicationContext(), "您的电脑已经很干净了", 0).show();
+							return ;
+						}
+					
+					
+					Intent intent3 = new Intent(HomeActivity.this,
+							TaskManagerActivity.class);
+					startActivity(intent3);
+
+					break;
+				case 5:// 病毒查杀
+					Intent virus= new Intent(HomeActivity.this,
+							AntiVirusActivity.class);
+					startActivity(virus);
+
+					break;
+				case 6:// 缓存清理
+					Intent cache= new Intent(HomeActivity.this,
+							CacheInfoActivity.class);
+					startActivity(cache);
+
+					break;
 				case 7:// 高级工具
 					Intent intent1= new Intent(HomeActivity.this,
 							AToolActivity.class);

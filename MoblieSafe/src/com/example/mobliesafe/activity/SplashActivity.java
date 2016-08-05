@@ -58,9 +58,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
  * @data 2016-7-9
  * @desc splash界面
  * 
- * @version $Rev: 14 $
+ * @version $Rev: 16 $
  * @author $Author: caojun $
- * @Date $Date: 2016-07-22 19:23:04 +0800 (周五, 22 七月 2016) $
+ * @Date $Date: 2016-08-05 17:55:44 +0800 (周五, 05 八月 2016) $
  * @Id $ID$
  * @Url $URL:
  *      https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example
@@ -521,7 +521,7 @@ public class SplashActivity extends Activity {
 				//拷贝数据库
 				copyFileThread("address.db");
 				copyFileThread("commonnum.db");
-				
+				copyFileThread("antivirus.db");
 				// 动画开始 ,初始化数据,初始化网络(子线程)
 				// 版本更新
 				if (SPUtils.getBoolean(getApplicationContext(),

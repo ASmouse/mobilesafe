@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="versionurl">http://192.168.43.117:8080/version.json</string>
-    
+    <string name="virusversionurl">http://10.0.2.2:8080/hm13server/servlet/version</string>
+    <string name="virusdatas">http://10.0.2.2:8080/hm13server/servlet/virus</string>
+
 </resources>

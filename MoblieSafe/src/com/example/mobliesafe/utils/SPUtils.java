@@ -8,9 +8,9 @@ import android.content.SharedPreferences;
  * @data 2016-7-10
  * @desc 对SharedPreferences功能的封装
 
- * @version  $Rev: 14 $
+ * @version  $Rev: 16 $
  * @author  $Author: caojun $
- * @Date  $Date: 2016-07-22 19:23:04 +0800 (周五, 22 七月 2016) $
+ * @Date  $Date: 2016-08-05 17:55:44 +0800 (周五, 05 八月 2016) $
  * @Id	$ID$
  * @Url  $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/utils/SPUtils.java $
  */
@@ -51,5 +51,13 @@ public class SPUtils {
 		SharedPreferences sp = context.getSharedPreferences(MyContains.SPFILENAME, Context.MODE_PRIVATE);
 		return sp.getInt(key, defValue);
 	}
+	public static void putLong(Context context , String key, long value){
+		 SharedPreferences sp = context.getSharedPreferences(MyContains.SPFILENAME, Context.MODE_PRIVATE);  
+		 sp.edit().putLong(key, value).commit();
+	}
 	
+	public static long getLong(Context context ,String key ,long defValue){
+		SharedPreferences sp = context.getSharedPreferences(MyContains.SPFILENAME, Context.MODE_PRIVATE);
+		return sp.getLong(key, defValue);
+	}
 }

@@ -1,5 +1,10 @@
 package com.example.mobliesafe.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -8,13 +13,53 @@ import java.security.NoSuchAlgorithmException;
  * @data 2016-7-12
  * @desc MD5加密
 
- * @version  $Rev: 7 $
+ * @version  $Rev: 16 $
  * @author  $Author: caojun $
- * @Date  $Date: 2016-07-12 20:02:45 +0800 (周二, 12 七月 2016) $
+ * @Date  $Date: 2016-08-05 17:55:44 +0800 (周五, 05 八月 2016) $
  * @Id	$ID$
  * @Url  $URL: https://192.168.56.250/svn/mobilesafesvn/trunk/MoblieSafe/src/com/example/mobliesafe/utils/Md5Utils.java $
  */
 public class Md5Utils {
+	
+	
+	public static String encodeFile(String path){
+		StringBuilder sb = new StringBuilder();
+		File file = new File(path);
+		try {
+			MessageDigest md = MessageDigest.getInstance("md5");
+			FileInputStream fis = new FileInputStream(file);
+			int len = -1;
+			byte[] bys= new byte[10*1024];
+			while((len = fis.read(bys))!=-1){
+				md.update(bys, 0, len);
+			}
+			fis.close();
+			byte[] digest = md.digest();
+			for (byte b : digest) {
+				int n = b & 0x000000ff;
+				String s = Integer.toHexString(n);
+				
+				if(s.length() == 1){
+					s ='0'+s;
+				}
+				sb.append(s);
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return sb+"";
+	}
 	
 	
 
